@@ -11,6 +11,10 @@ dependencies:
     sdk: flutter
 
   cupertino_icons: ^0.1.2
+  open_file: ^2.0.3
+  url_launcher: ^5.2.5
+  webview_flutter: ^0.3.15+1
+
 
 dev_dependencies:
   flutter_test:
@@ -21,3 +25,4 @@ flutter:
 
   assets:
   - images/
+  - assets/

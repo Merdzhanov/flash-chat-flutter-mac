@@ -1,6 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flash_chat/components/rounded_button.dart';
+import 'package:flash_chat/components/input_text_field.dart';
+import 'package:webview_flutter/webview_flutter.dart';
 
 class RegistrationScreen extends StatefulWidget {
+  static String id = 'registration_screen';
+
   @override
   _RegistrationScreenState createState() => _RegistrationScreenState();
 }
@@ -9,88 +14,97 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
-      body: Padding(
-        padding: EdgeInsets.symmetric(horizontal: 24.0),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: <Widget>[
-            Container(
-              height: 200.0,
-              child: Image.asset('images/logo.png'),
-            ),
-            SizedBox(
-              height: 48.0,
-            ),
-            TextField(
-              onChanged: (value) {
-                //Do something with the user input.
-              },
-              decoration: InputDecoration(
-                hintText: 'Enter your email',
-                contentPadding:
-                    EdgeInsets.symmetric(vertical: 10.0, horizontal: 20.0),
-                border: OutlineInputBorder(
-                  borderRadius: BorderRadius.all(Radius.circular(32.0)),
-                ),
-                enabledBorder: OutlineInputBorder(
-                  borderSide: BorderSide(color: Colors.blueAccent, width: 1.0),
-                  borderRadius: BorderRadius.all(Radius.circular(32.0)),
-                ),
-                focusedBorder: OutlineInputBorder(
-                  borderSide: BorderSide(color: Colors.blueAccent, width: 2.0),
-                  borderRadius: BorderRadius.all(Radius.circular(32.0)),
+      resizeToAvoidBottomPadding: false,
+      backgroundColor: Colors.blue,
+      body: SingleChildScrollView(
+        padding: EdgeInsets.symmetric(vertical: 24.0),
+        child: Padding(
+          padding: EdgeInsets.symmetric(horizontal: 24.0),
+//        SingleChildScrollView
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: <Widget>[
+              Hero(
+                tag: 'logoPegas',
+                child: Container(
+                  height: 200.0,
+                  child: Image.asset('images/logoPegas.png'),
                 ),
               ),
-            ),
-            SizedBox(
-              height: 8.0,
-            ),
-            TextField(
-              onChanged: (value) {
-                //Do something with the user input.
-              },
-              decoration: InputDecoration(
-                hintText: 'Enter your password',
-                contentPadding:
-                    EdgeInsets.symmetric(vertical: 10.0, horizontal: 20.0),
-                border: OutlineInputBorder(
-                  borderRadius: BorderRadius.all(Radius.circular(32.0)),
-                ),
-                enabledBorder: OutlineInputBorder(
-                  borderSide: BorderSide(color: Colors.blueAccent, width: 1.0),
-                  borderRadius: BorderRadius.all(Radius.circular(32.0)),
-                ),
-                focusedBorder: OutlineInputBorder(
-                  borderSide: BorderSide(color: Colors.blueAccent, width: 2.0),
-                  borderRadius: BorderRadius.all(Radius.circular(32.0)),
-                ),
+              SizedBox(
+                height: 48.0,
               ),
-            ),
-            SizedBox(
-              height: 24.0,
-            ),
-            Padding(
-              padding: EdgeInsets.symmetric(vertical: 16.0),
-              child: Material(
-                color: Colors.blueAccent,
-                borderRadius: BorderRadius.all(Radius.circular(30.0)),
-                elevation: 5.0,
-                child: MaterialButton(
+              Text('Моля попълнете коректно следните данни:'),
+              SizedBox(
+                height: 8.0,
+              ),
+              InputTextField(
+                hintText: 'Три имена/Наименование',
+                onChanged: (value) {
+                  //Do something with the user input.
+                },
+              ),
+              SizedBox(
+                height: 8.0,
+              ),
+              InputTextField(
+                hintText: 'Адрес/само за юридическо лице/',
+                maxLines: 3,
+                onChanged: (value) {
+                  //Do something with the user input.
+                },
+              ),
+              SizedBox(
+                height: 8.0,
+              ),
+              InputTextField(
+                hintText: 'E-mail',
+                onChanged: (value) {
+                  //Do something with the user input.
+                },
+              ),
+              SizedBox(
+                height: 8.0,
+              ),
+              InputTextField(
+                hintText: 'ЕИК/ЕГН',
+                onChanged: (value) {
+                  //Do something with the user input.
+                },
+              ),
+              Text(
+                  'Моля, в случай че сте физическо лице и искате да получавате данъчна фактура, да въведете коректно своето ЕГН (това поле да не е задължитено за попълване)'),
+              SizedBox(
+                height: 8.0,
+              ),
+              InputTextField(
+                hintText: 'Данни  за фактура',
+                maxLines: 3,
+                onChanged: (value) {
+                  //Do something with the user input.
+                },
+              ),
+              SizedBox(
+                height: 8.0,
+              ),
+              InputTextField(
+                hintText: 'Парола',
+                onChanged: (value) {
+                  //Do something with the user input.
+                },
+              ),
+              SizedBox(
+                height: 24.0,
+              ),
+              RoundedButton(
+                  title: 'Register',
+                  color: Colors.blueAccent,
                   onPressed: () {
                     //Implement registration functionality.
-                  },
-                  minWidth: 200.0,
-                  height: 42.0,
-                  child: Text(
-                    'Register',
-                    style: TextStyle(color: Colors.white),
-                  ),
-                ),
-              ),
-            ),
-          ],
+                  })
+            ],
+          ),
         ),
       ),
     );

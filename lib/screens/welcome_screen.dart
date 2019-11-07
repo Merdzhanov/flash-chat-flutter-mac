@@ -28,6 +28,7 @@ class _WelcomeScreenState extends State<WelcomeScreen>
     controller.addListener(() {
       setState(() {});
     });
+    print('a');
   }
 
   @override

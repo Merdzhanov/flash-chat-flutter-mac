@@ -13,6 +13,7 @@ class RegistrationScreen extends StatefulWidget {
 class _RegistrationScreenState extends State<RegistrationScreen> {
   @override
   Widget build(BuildContext context) {
+    print('a');
     return Scaffold(
       resizeToAvoidBottomPadding: false,
       backgroundColor: Colors.blue,

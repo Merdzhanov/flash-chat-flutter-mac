@@ -15,6 +15,7 @@ class InputTextField extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    print('a');
     return TextField(
       expands: false,
       minLines: 1,
